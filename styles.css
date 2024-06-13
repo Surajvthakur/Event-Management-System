@@ -1,0 +1,139 @@
+/* Import the fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Lora:wght@400;700&display=swap');
+
+:root {
+  --clip-size: 1.5rem;
+  --clip-bottom-right: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--clip-size)),
+    calc(100% - var(--clip-size)) 100%,
+    0% 100%,
+    0 0
+  );
+  --clip-bottom-left: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    var(--clip-size) 100%,
+    0 calc(100% - var(--clip-size)),
+    0 0
+  );
+  --bg: #eee;
+  --fg: #494949;
+  --border: rgba(120, 120, 130, 0.3);
+  --hover: rgba(100, 100, 130, 0.2);
+  --confirmation: #268500;
+  --border-card: calc(100% - 2rem);
+  --gap-card: clamp(1.2rem, calc(1.18rem + 0.1vw), 1.25rem);
+  --bg-stripe: color-mix(in srgb, black 8%, var(--bg));
+}
+
+/* General Styles */
+body {
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+
+  font-family: system-ui, Verdana, sans-serif;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+
+.text-center {
+  color: rgb(3, 6, 29);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+}
+
+.mb-3 {
+  font-size: 20px;
+  color: rgb(3, 6, 29);
+  height: auto;
+  width: 50%;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.event-list {
+  background-color: antiquewhite;
+  border-radius: 20px;
+}
+
+/* Card Styles */
+.card {
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-size 0.25s, transform 0.25s;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  flex-grow: 1;
+  font-family: 'Lora', serif;
+}
+
+.btn.delete {
+  align-self: flex-end;
+}
+
+.card {
+  --colour: color-mix(in srgb, black 70%, var(--bg));
+  background: var(--bg)
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0,
+      transparent 1rem,
+      var(--bg-stripe) 0,
+      var(--bg-stripe) 2rem
+    );
+  background-size: var(--border-card) var(--border-card);
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--colour);
+}
+
+.card:hover,
+.card:focus {
+  --border-card: 70%;
+  transform: scale(1.05);
+}
+
+.card span {
+  background: var(--bg);
+}
+
+.card .subtitle {
+  padding: 4px 0;
+  font-family: 'Lora', serif;
+  font-size: 1.45rem;
+  line-height: 1.5;
+}
+
+.card .title {
+  padding: 12px 0 6px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
